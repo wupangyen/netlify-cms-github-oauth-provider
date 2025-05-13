@@ -1,11 +1,11 @@
-const REQUIRED_ORIGIN_PATTERN = 
-  /^((\*|([\w_-]{2,}))\.)*(([\w_-]{2,})\.)+(\w{2,})(\,((\*|([\w_-]{2,}))\.)*(([\w_-]{2,})\.)+(\w{2,}))*$/
+const isDev = process.env.NODE_ENV !== 'production';
+const originList = process.env.ORIGINS;
 
-if (!process.env.ORIGINS.match(REQUIRED_ORIGIN_PATTERN)) {
-  throw new Error('process.env.ORIGINS MUST be comma separated list \
-    of origins that login can succeed on.')
+if (!originList && !isDev) {
+  throw new Error('Missing ORIGINS environment variable.');
 }
-const origins = process.env.ORIGINS.split(',')
+
+const origins = (originList || '').split(',');
 
 
 module.exports = (oauthProvider, message, content) => `
