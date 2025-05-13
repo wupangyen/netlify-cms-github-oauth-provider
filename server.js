@@ -12,4 +12,5 @@ app.get('/success', routes.success);
 
 app.listen(PORT, () => {
   console.log(`✅ OAuth provider running on port ${PORT}`);
+  console.log('Registered routes: /, /auth, /callback, /success');
 });
