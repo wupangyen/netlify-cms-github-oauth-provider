@@ -13,4 +13,4 @@ module.exports = (oauthProvider, message, content) => `
   }
 })();
 </script>
-`
+`; 
