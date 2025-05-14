@@ -20,10 +20,12 @@ const config = {
 const oauth2 = new simpleOauthModule.AuthorizationCode(config)
 
 function indexMiddleWare (req, res) {
-  res.send(`Hello<br>
-    <a href="/auth" target="${loginAuthTarget}">
-      Log in with ${oauthProvider.toUpperCase()}
-    </a>`)
+  res.send(`
+    <h1>Hello</h1>
+    <a href="https://pang-blog-minimal-mistakes-theme.onrender.com/auth">
+      Log in with GITHUB
+    </a>
+  `);
 }
 
 module.exports = {
